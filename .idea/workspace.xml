@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77d69475-bb04-495d-a0a3-488e9d94390a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordpress/wp-content/themes/project/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wordpress/wp-content/themes/project/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670231333325</updated>
-      <workItem from="1670231335063" duration="14004000" />
+      <workItem from="1670231335063" duration="14597000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1670232078592</created>
@@ -92,7 +92,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670238247011</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test1">
+      <created>1670272529690</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670272529690</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add all">
+      <created>1670272624583</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670272624583</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +130,7 @@
     <MESSAGE value="11" />
     <MESSAGE value="test" />
     <MESSAGE value="test1" />
-    <option name="LAST_COMMIT_MESSAGE" value="test1" />
+    <MESSAGE value="add all" />
+    <option name="LAST_COMMIT_MESSAGE" value="add all" />
   </component>
 </project>
