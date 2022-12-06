@@ -18,7 +18,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
-	<p>1234567890</p>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -51,7 +51,7 @@
 			<?php
 			wp_nav_menu(
 				array(
-					'theme_location' => 'menu-1',
+					'theme_location' => 'main-menu',
 					'menu_id'        => 'primary-menu',
 				)
 			);
