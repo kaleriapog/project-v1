@@ -21,16 +21,12 @@
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'batowebd_project-v1' );
-// define( 'DB_NAME', 'project-v1' );
 
 /** Database username */
 define( 'DB_USER', 'batowebd_project-v1' );
-// define( 'DB_USER', 'root' );
 
 /** Database password */
 define( 'DB_PASSWORD', 'ohQ+#1qJ5@dt' );
-// define( 'DB_PASSWORD', 'root' );
-
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
