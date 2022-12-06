@@ -19,6 +19,8 @@
 
 	<?php wp_head(); ?>
 
+	<p>test?</p>
+
 </head>
 
 <body <?php body_class(); ?>>
