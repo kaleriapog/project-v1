@@ -176,3 +176,85 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/* insert image START */
+function insertImage($file, $class = '', $width = 100, $height = 100, $return = 0) {
+
+    if (!empty($file)) {
+        if(!is_array($file)) {
+            $file_url = _IMAGES_.'/'.$file;
+            $file_title =  pathinfo($file, PATHINFO_FILENAME);
+            $extension = pathinfo($file, PATHINFO_EXTENSION);
+        } else {
+            $file_url = $file['url'];
+            $file_title = $file['alt'];
+            $extension = pathinfo($file['filename'], PATHINFO_EXTENSION);
+        }
+        $context = stream_context_create(array (
+            'http' => [
+                'header' => 'Authorization: Basic ' . base64_encode("demo:a30599b78355")
+            ],
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+            ],
+        ));
+        if (!@file_get_contents($file_url, false, $context) === false) {
+            if ($extension == 'svg') {
+                $content = file_get_contents($file_url, false, $context);
+                $content = str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', $content);
+                if ($return) {
+                    return $content;
+                }
+                echo $content;
+            } else {
+                $content = '<img
+                    class="'.$class.'"
+                    src="'.$file_url. '"
+                    alt="'.$file_title.'"
+                    width="'.$width.'"
+                    height="'.$height.'"
+                />';
+                if ($return) {
+                    return $content;
+                }
+                echo $content;
+            }
+        }
+    }
+}
+/* insert image END */
+
+/* ACF theme options START */
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(
+        array(
+            'page_title' => 'Options',
+            'menu_title' => 'Options',
+            'menu_slug' => 'theme-options',
+            'capability' => 'edit_posts',
+            'parent_slug' => '',
+            'position' => false,
+        )
+    );
+}
+/* ACF theme options END */
+
+/* insert SVG START */
+function insertButton($link, $class = '') {
+	if (!empty($link)) {
+		$partial = get_stylesheet_directory_uri() . '/partials/button';
+		$target = '_self';
+
+		if (!empty($link['target'])) {
+			$target = $link['target'];
+		}
+
+		$content = '<a
+            href="' . $link['url'] . '"
+            target="' . $target . '" class="site--button ' . $class . '"
+        >' . $link['title'] . '</a>';
+
+		echo $content;
+	}
+}
+/* insert SVG END */

@@ -1,0 +1,18 @@
+$paddingMainSize: 20px;
+$mainSize: 1200px + $paddingMainSize * 2;
+
+//colors
+$colorMain: #030D25;
+$colorBlack: #000;
+$colorWhite: #fff;
+$colorBorder: #C4C6CC;
+$colorBlue: #2E85FE;
+$colorBlueLight: #70ACFB;
+$colorButton: #455475;
+$colorGrey: #A3ABBB;
+
+//borders
+$borderButton: 2px solid $colorBorder;
+
+//transition
+$transitionMain: all 0.3s linear;

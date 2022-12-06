@@ -1,0 +1,86 @@
+body {
+  font-family: 'Manrope';
+  font-weight: 500;
+  color: $colorMain;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.main-size {
+  max-width: $mainSize;
+  width: 100%;
+  padding: 0 $paddingMainSize ;
+  margin: auto;
+}
+
+//buttons
+.main-button {
+  padding: 15px 26px;
+  border-radius: 12px;
+  display: inline-block;
+  border: $borderButton;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.37;
+  color:$colorButton;
+  transition: $transitionMain;
+
+  &:hover {
+    border-color: $colorButton;
+  }
+}
+
+.main-button-color {
+  border: none;
+  background-color: $colorBlue;
+  color: $colorWhite;
+  transition: $transitionMain;
+
+  &:hover {
+    background-color: $colorBlueLight;
+  }
+}
+
+.main-button-arrow {
+  position: relative;
+  padding-right: 75px;
+  padding-left: 20px;
+
+  &::after {
+    content: '';
+    background: no-repeat url("./images/arrow.svg") 50% 50%;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.buttons_group {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.headline {
+  max-width: 610px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.headline__above-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  display: inline-block;
+}

@@ -1,0 +1,47 @@
+.hero {
+  padding: 75px 0 0;
+  margin-bottom: 75px;
+  position: relative;
+
+  &__title {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 0.9;
+    margin-bottom: 25px;
+  }
+
+  .subtitle {
+    margin-bottom: 32px;
+  }
+
+  &__image {
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+  }
+
+  &__logos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 1090px;
+  }
+
+  &__logos-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.37;
+    text-align: center;
+    color: $colorGrey;
+    margin-bottom: 45px;
+  }
+
+  &__logos-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px 70px;
+    max-height: 42px;
+  }
+}

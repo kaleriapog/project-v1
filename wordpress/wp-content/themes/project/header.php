@@ -9,7 +9,11 @@
  * @package project
  */
 
+$button_header = get_field('link', 'options');
+$button_color = get_field('color_button', 'options');
+
 ?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -19,8 +23,6 @@
 
 	<?php wp_head(); ?>
 
-	<p>test?</p>
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -28,35 +30,50 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'project' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$project_description = get_bloginfo( 'description', 'display' );
-			if ( $project_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $project_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+	<header id="masthead" class="site-header header">
+	    <div class="main-size">
+            <div class="header__inner">
+                <div class="logo">
+                    <?php
+                    the_custom_logo();
+                    ?>
+                </div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'project' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'main-menu',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+                <nav id="site-navigation" class="main-nav">
+                    <!--<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'project' ); ?></button> -->
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'main-menu',
+                            'menu_id'        => 'primary-menu',
+                            'menu_class'      => 'header__menu'
+                        )
+                    );
+                    ?>
+                </nav><!-- #site-navigation -->
+                <div class="button-wrapp">
+
+                    <?php if(!empty($button_color) && !empty($button_header)) : ?>
+
+                        <div class="monitor-section__image">
+
+                            <?php insertButton($button_header, 'header__button main-button main-button-color'); ?>
+
+                        </div>
+
+                    <?php endif ?>
+
+                    <?php if(empty($button_color) && !empty($button_header)) : ?>
+
+                        <div class="monitor-section__image">
+
+                            <?php insertButton($button_header, 'header__button main-button'); ?>
+
+                        </div>
+
+                    <?php endif ?>
+
+                </div>
+            </div>
+		</div>
 	</header><!-- #masthead -->

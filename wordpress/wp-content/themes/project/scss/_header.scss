@@ -1,0 +1,39 @@
+.header {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .logo {
+    max-width: 100px;
+    width: 100%;
+  }
+
+  &__button {
+    font-size: 14px;
+    line-height: 1.42;
+    padding: 14px 24px;
+  }
+
+  .header__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 54px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.42;
+
+    li a {
+      transition: $transitionMain;
+
+      &:hover {
+        color: $colorBlue;
+      }
+    }
+  }
+}
