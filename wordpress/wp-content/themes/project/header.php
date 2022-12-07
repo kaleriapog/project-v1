@@ -25,7 +25,7 @@ $button_color = get_field('color_button', 'options');
 
 </head>
 
-<body <?php body_class(); ?>>
+<body id="body" <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'project' ); ?></a>
@@ -40,7 +40,6 @@ $button_color = get_field('color_button', 'options');
                 </div><!-- .site-branding -->
 
                 <nav id="site-navigation" class="main-nav">
-                    <!--<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'project' ); ?></button> -->
                     <?php
                     wp_nav_menu(
                         array(
@@ -50,12 +49,36 @@ $button_color = get_field('color_button', 'options');
                         )
                     );
                     ?>
+
+                     <div class="button-block button-block-mobile">
+
+                        <?php if(!empty($button_color) && !empty($button_header)) : ?>
+
+                            <div class="button__wrapper">
+
+                                <?php insertButton($button_header, 'header__button main-button main-button-color'); ?>
+
+                            </div>
+
+                        <?php endif ?>
+
+                        <?php if(empty($button_color) && !empty($button_header)) : ?>
+
+                            <div class="monitor-section__image">
+
+                                <?php insertButton($button_header, 'header__button main-button'); ?>
+
+                            </div>
+
+                        <?php endif ?>
+
+                     </div>
                 </nav><!-- #site-navigation -->
-                <div class="button-wrapp">
+                <div class="button-block button-block-desktop">
 
                     <?php if(!empty($button_color) && !empty($button_header)) : ?>
 
-                        <div class="monitor-section__image">
+                        <div class="button__wrapper">
 
                             <?php insertButton($button_header, 'header__button main-button main-button-color'); ?>
 
@@ -74,6 +97,8 @@ $button_color = get_field('color_button', 'options');
                     <?php endif ?>
 
                 </div>
+
+                <div class="menu-icon-wrapper"><div class="menu-icon"><span></span></div></div>
             </div>
 		</div>
 	</header><!-- #masthead -->

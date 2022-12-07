@@ -4,6 +4,16 @@ body {
   color: $colorMain;
   font-size: 18px;
   line-height: 1.5;
+  padding-top: 88px;
+
+  @include media-laptop {
+    padding-top: 80px;
+  }
+
+  &.not-scroll {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 .main-size {
@@ -63,9 +73,11 @@ body {
   gap: 18px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
+//title
 .headline {
   max-width: 610px;
   width: 100%;
@@ -74,8 +86,14 @@ body {
 }
 
 .subtitle {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.37;
+  text-align: center;
+
+  @include media-height-desk-extra-low {
+    font-size: 14px;
+  }
 }
 
 .headline__above-title {
@@ -83,4 +101,34 @@ body {
   font-weight: 700;
   line-height: 1.5;
   display: inline-block;
+
+  @include media-mobile {
+    margin-bottom: 20px;
+  }
+}
+
+.main-title {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 20px;
+
+  @include media-tablet {
+    font-size: 38px;
+  }
+
+  @include media-height-desk-extra-low {
+    font-size: 38px;
+  }
+}
+
+.compressed-title {
+  letter-spacing: -0.03em;
+}
+
+
+.trigger-margin {
+  position: relative;
+  z-index: 1;
 }

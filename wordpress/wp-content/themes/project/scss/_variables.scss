@@ -8,6 +8,7 @@ $colorWhite: #fff;
 $colorBorder: #C4C6CC;
 $colorBlue: #2E85FE;
 $colorBlueLight: #70ACFB;
+$colorBlueExtraLight: #F7FAFF;
 $colorButton: #455475;
 $colorGrey: #A3ABBB;
 
@@ -16,3 +17,64 @@ $borderButton: 2px solid $colorBorder;
 
 //transition
 $transitionMain: all 0.3s linear;
+
+//media size
+$mediaWidthMobileSmall: 350px;
+$mediaWidthMobile: 767px;
+$mediaWidthTablet: 991px;
+$mediaWidthLaptop: 1024px;
+
+//media
+@mixin media-laptop {
+  @media (max-width: $mediaWidthLaptop) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (max-width: $mediaWidthTablet) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media (max-width: $mediaWidthMobile) {
+    @content;
+  }
+}
+
+@mixin media-mobile-small {
+  @media (max-width: $mediaWidthMobileSmall) {
+    @content;
+  }
+}
+
+@mixin media-height-desk-low {
+  @media (max-height: 800px) and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-height-desk-extra-low {
+  @media (max-height: 600px) and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-height-desk-low {
+  @media (max-height: 800px) and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-height-desk-large {
+  @media (min-height: 1000px) and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}

@@ -1,4 +1,11 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $colorWhite;
+
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -28,6 +35,11 @@
     font-weight: 500;
     line-height: 1.42;
 
+    @include media-laptop {
+      flex-direction: column;
+      font-size: 20px;
+    }
+
     li a {
       transition: $transitionMain;
 
@@ -36,4 +48,116 @@
       }
     }
   }
+
+  .button-block-mobile {
+    display: none;
+
+    @include media-laptop {
+      display: block;
+    }
+  }
+
+  .button-block-desktop {
+
+    @include media-laptop {
+      display: none;
+    }
+  }
+
+  .main-nav {
+    @include media-laptop {
+      position: absolute;
+      z-index: 100;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $colorBlueExtraLight;
+      height: calc(100vh - 80px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 30px 20px 60px;
+      clip-path: inset(0 0 0 100%);
+      transition: $transitionMain;
+      margin-left: 50%;
+    }
+
+    @include media-mobile {
+      margin-left: 0;
+    }
+
+    &.open {
+      @include media-laptop {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+  }
 }
+
+.menu-icon-wrapper {
+  transition: all 0.3s ease 0.6s;
+  position: relative;
+  display: none;
+
+  @include media-laptop {
+    display: block;
+  }
+}
+
+.menu-icon {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.menu-icon > span {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: $colorMain;
+  border-radius: 3px;
+  transition: transform 0.3s, background 0.25s ease;
+}
+
+.menu-icon > span:before,
+.menu-icon > span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $colorMain;
+  border-radius: 3px;
+  transition: transform 0.3s, background 0.25s ease;
+}
+
+.menu-icon > span:before {
+  transform: translateY(-0.75em);
+}
+
+.menu-icon > span:after {
+  transform: translateY(0.75em);
+}
+
+//OPENED
+
+.menu-icon.open {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.menu-icon.open > span:before {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.menu-icon.open > span:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
