@@ -97,6 +97,13 @@ document.addEventListener("DOMContentLoaded", function() {
             arrIcon.forEach((icon) => {
 
                 icon.addEventListener('click', function() {
+                    let parentMain = this.closest('.section-interactive__item-image')
+                    let thisImageChange = parentMain.querySelector('.image-interactive-change')
+
+                    if (thisImageChange) {
+                        thisImageChange.classList.add('active')
+                    }
+
                     this.parentNode.classList.toggle('active');
 
                     //open next dot
@@ -108,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     //close prev dot
                     let prevDot = this.parentNode.previousElementSibling
                     if(prevDot) {
-                        console.log(prevDot)
                         prevDot.querySelector('.dot-content__icon').classList.remove('active');
                         prevDot.classList.remove('active');
                     }

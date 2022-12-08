@@ -228,6 +228,20 @@
     }
   }
 
+  .image-interactive-change {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: $transitionMain;
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
   &__item-inner {
     position: relative;
   }
@@ -265,10 +279,6 @@
     .dot-content {
       position: absolute;
       z-index: 2;
-
-      //&:not(:first-child) .dot-content__icon {
-      //  opacity: 0;
-      //}
 
       &.active .dot-content__text{
         clip-path: inset(-10px -10px -10px -10px);

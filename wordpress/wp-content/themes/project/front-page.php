@@ -196,6 +196,7 @@ $items_interactive = get_field('items_interactive', $post->ID);
                     $title = $items['title_interactive'];
                     $subtitle = $items['subtitle_interactive'];
                     $image = $items['image_interactive'];
+                    $image_interactive_change = $items['image_interactive_change'];
                     $color = $items['color_interactive'];
                     $color_bg = $items['color_background_block_interactive'];
                     $dots = $items['dots'];
@@ -226,9 +227,15 @@ $items_interactive = get_field('items_interactive', $post->ID);
                             <div class="section-interactive__item-image">
                                 <div class="section-interactive__item-bg" style="background-color: <?php echo $color ?>;"></div>
 
-                                <?php insertImage($image, 'image'); ?>
+                                <?php
+                                    insertImage($image, 'image');
 
-                                <?php if ( !empty($dots)) : ?>
+                                    if (!empty($dots)) :
+                                        insertImage($image_interactive_change, 'image image-interactive-change');
+                                    endif
+                                ?>
+
+                                <?php if (!empty($dots)) : ?>
 
                                 <ul class="section-interactive__dots-list">
 
