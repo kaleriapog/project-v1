@@ -94,6 +94,10 @@ body {
   @include media-height-desk-extra-low {
     font-size: 14px;
   }
+
+  @include media-mobile {
+    font-size: 14px;
+  }
 }
 
 .headline__above-title {
@@ -120,6 +124,14 @@ body {
 
   @include media-height-desk-extra-low {
     font-size: 38px;
+  }
+
+  @include media-mobile {
+    font-size: 34px;
+  }
+
+  @include media-mobile-small {
+    font-size: 32px;
   }
 }
 

@@ -73,6 +73,18 @@ $mediaWidthLaptop: 1024px;
   }
 }
 
+@mixin media-height-830 {
+  @media (max-height: 830px) {
+    @content;
+  }
+}
+
+@mixin media-height-730 {
+  @media (max-height: 730px) {
+    @content;
+  }
+}
+
 @mixin media-landscape {
   @media (orientation: landscape) {
     @content;

@@ -198,6 +198,7 @@ $items_interactive = get_field('items_interactive', $post->ID);
                     $image = $items['image_interactive'];
                     $color = $items['color_interactive'];
                     $color_bg = $items['color_background_block_interactive'];
+                    $dots = $items['dots'];
                     ?>
 
                 <li class="section-interactive__item interactive-item-<?php echo $key ?>" style="z-index: <?php echo 50 - $key ?>; background-color: <?php echo $color_bg ?>;">
@@ -226,6 +227,35 @@ $items_interactive = get_field('items_interactive', $post->ID);
                                 <div class="section-interactive__item-bg" style="background-color: <?php echo $color ?>;"></div>
 
                                 <?php insertImage($image, 'image'); ?>
+
+                                <?php if ( !empty($dots)) : ?>
+
+                                <ul class="section-interactive__dots-list">
+
+                                    <?php foreach ($dots as $key=>$item) :
+                                        $title = $item['dot_title'];
+                                        $dot_position_x = $item['dot_position_x'];
+                                        $dot_position_y = $item['dot_position_y'];
+                                        $dot_title_position = $item['dot_title_position'];
+                                        ?>
+
+                                        <li class="dot-content dot-content-<?php echo $key ?> dot-content-<?php echo $dot_title_position ?>" style="bottom: <?php echo $dot_position_y ?>%; left: <?php echo $dot_position_x ?>%; ">
+                                            <div class="dot-content__icon">
+                                                <div class="dot-content__icon-center">
+                                                    <svg width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <circle cx="6.49976" cy="6.5" r="1.79348" fill="#2E85FE" stroke="#2E85FE" stroke-width="0.413043"/>
+                                                        <circle cx="6.5" cy="6.5" r="5" stroke="#2E85FE" stroke-width="2"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="dot-content__text"><?php echo $title ?></div>
+                                        </li>
+
+                                    <?php endforeach ?>
+
+                                </ul>
+
+                                <?php endif ?>
 
                             </div>
                         </div>
