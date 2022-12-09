@@ -82,6 +82,7 @@
       clip-path: inset(0 0 0 100%);
       transition: $transitionMain;
       margin-left: 50%;
+      overflow: scroll;
     }
 
     @include media-mobile {

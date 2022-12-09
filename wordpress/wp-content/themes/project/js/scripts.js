@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let controller = new ScrollMagic.Controller();
+    let controller = new ScrollMagic.Controller()
 
     let menuIcon = document.querySelector('.menu-icon')
     let headerNavigation = document.getElementById('site-navigation')
@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let header = document.querySelector('.header')
     let sectionInteractive = document.querySelector('.section-interactive')
     let arrDotsLists = document.querySelectorAll('.section-interactive__dots-list')
+    let sliderRatings = document.querySelector('.slider-ratings')
+    let ratings = document.querySelectorAll('.section-ratings__card-rating')
+    let accordion = document.querySelectorAll('.section-accordion__item')
 
     let orientationLandscape = window.innerHeight < window.innerWidth
     let heightLarge = window.innerHeight > 1025
@@ -17,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let mediaTabletLandscape = (window.innerHeight < 991 && window.innerWidth < 1025)
     let mediaMobile = (window.innerWidth < 768)
 
-
     if(menuIcon) {
         menuIcon.addEventListener('click', () => {
             menuIcon.classList.toggle('open')
@@ -27,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if(sectionInteractive && !mediaLaptop) {
+        sectionInteractive.nextElementSibling.classList.add('trigger-margin')
+
         let timelineSectionInteractive = new TimelineMax();
         let arrInteractive = document.querySelectorAll('.section-interactive__item')
         let heightItemInteractive = arrInteractive[0].clientHeight
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         arrInteractive.forEach((el,idx) => {
             if(!(arrInteractive.length - 1 === idx)) {
                 timelineSectionInteractive
-                    .fromTo([`.interactive-item-${idx}`], {}, {clipPath: 'inset(0 0 100% 0)', ease: Linear.easeNone})
+                    .fromTo([`.interactive-item-${idx}`], {}, {clipPath: 'inset(0 0 100% 0)', ease: Circ.easeNone})
                     .fromTo([`.interactive-item-${idx} img`], {}, {transform: 'translateY(-20px)', ease: Linear.easeNone}, '<')
             }
         })
@@ -122,4 +126,71 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
     }
+
+    if(sliderRatings) {
+        const sliderRatingsSwiper = new Swiper('.slider-ratings', {
+            direction: 'horizontal',
+            spaceBetween: 40,
+            loop: true,
+            slidesPerView: 3,
+            // centeredSlides: true,
+            preventInteractionOnTransition: true,
+            navigation: {
+                nextEl: ".slider-button-next",
+                prevEl: ".slider-button-prev",
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                },
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true
+            },
+        });
+    }
+
+    if(ratings) {
+        ratings.forEach((rating) => {
+            let dataRating = rating.getAttribute('data-rating')
+            let currentRatingInStars = 100 * dataRating / 5
+            let currentIconStar = rating.querySelector('.ratings-icon__fill')
+
+            currentIconStar.style.clipPath = `inset(0 ${100 - currentRatingInStars}% 0 0)`
+
+        })
+    }
+
+    if(accordion) {
+        function toggleAccordion() {
+            let thisItem = this.closest('.section-accordion__item');
+
+            console.log(12)
+
+
+            accordion.forEach(item => {
+                if (thisItem === item) {
+                    thisItem.classList.toggle('active');
+                    return;
+                }
+
+                item.classList.remove('active');
+
+            });
+        }
+
+        accordion.forEach(question => question.addEventListener('click', toggleAccordion))
+    }
+
 })

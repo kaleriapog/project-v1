@@ -140,9 +140,10 @@ add_action( 'widgets_init', 'project_widgets_init' );
 function project_scripts() {
 	wp_enqueue_style( 'project-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'project-style', 'rtl', 'replace' );
+    wp_enqueue_style( 'project-swiper-bundle.min', get_template_directory_uri() . '/swiper-bundle.min.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'project-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-//    wp_enqueue_script('swiper', get_template_directory_uri() . '/js/libraries/swiper-bundle.min.js',array('jquery'),null,false);
+    wp_enqueue_script('swiper', get_template_directory_uri() . '/js/libraries/swiper-bundle.min.js',array('jquery'),null,false);
     wp_enqueue_script('gsap', get_template_directory_uri() . '/js/libraries/gsap.min.js',array('jquery'),null,false);
     wp_enqueue_script('ScrollMagic', get_template_directory_uri() . '/js/libraries/ScrollMagic.js',array('jquery'),null,false);
     wp_enqueue_script('debugAddIndicators', get_template_directory_uri() . '/js/libraries/debug.addIndicators.min.js',array('jquery'),null,false);
@@ -246,7 +247,7 @@ if( function_exists('acf_add_options_page') ) {
 }
 /* ACF theme options END */
 
-/* insert SVG START */
+/* insert button START */
 function insertButton($link, $class = '') {
 	if (!empty($link)) {
 		$partial = get_stylesheet_directory_uri() . '/partials/button';
@@ -264,4 +265,5 @@ function insertButton($link, $class = '') {
 		echo $content;
 	}
 }
-/* insert SVG END */
+/* insert button END */
+/* insert button END */
