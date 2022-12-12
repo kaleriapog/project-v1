@@ -88,6 +88,11 @@
 
     @include media-mobile {
       margin-left: 0;
+      padding: 30px 20px 100px;
+    }
+
+    @include media-mobile-small {
+      padding: 30px 20px 60px;
     }
 
     &.open {
