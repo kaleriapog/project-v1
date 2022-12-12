@@ -9,21 +9,55 @@
  * @package project
  */
 
+
+$button_footer = get_field('link_footer', 'options');
+$button_color_footer = get_field('color_button_footer', 'options');
+
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'project' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'project' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'project' ), 'project', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
+			<div class="main-size">
+                <div class="footer__inner">
+                    <div class="footer__left">
+                        <div class="logo">
+
+                            <?php
+                            the_custom_logo();
+                            ?>
+
+                        </div>
+                        <div class="button-block button-block-mobile">
+
+                            <?php if(!empty($button_color_footer) && !empty($button_footer)) : ?>
+
+                                <div class="button__wrapper">
+
+                                    <?php insertButton($button_footer, 'footer_button main-button main-button-color'); ?>
+
+                                </div>
+
+                            <?php endif ?>
+
+                            <?php if(empty($button_color_footer) && !empty($button_footer)) : ?>
+
+                                <div class="">
+
+                                    <?php insertButton($button_footer, 'footer__button main-button'); ?>
+
+                                </div>
+
+                            <?php endif ?>
+
+                        </div>
+                    </div>
+                    <div class="footer__right">
+
+                        <?php dynamic_sidebar(); ?>
+
+                    </div>
+                </div>
+            </div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

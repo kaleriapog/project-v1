@@ -28,6 +28,10 @@ $list_cards_ratings = get_field('list_cards_ratings', $post->ID);
 $title_accordion = get_field('title_accordion', $post->ID);
 $list_accordion = get_field('list_accordion', $post->ID);
 
+$title_simple = get_field('title_simple', $post->ID);
+$link_simple = get_field('link_simple', $post->ID);
+
+
 ?>
 
 <main id="primary" class="site-main">
@@ -248,7 +252,7 @@ $list_accordion = get_field('list_accordion', $post->ID);
 
                                 <?php if (!empty($dots)) : ?>
 
-                                <ul class="section-interactive__dots-list">
+                                <ul class="section-interactive__dots-list dots-list-desktop">
 
                                     <?php foreach ($dots as $key=>$item) :
                                         $title = $item['dot_title'];
@@ -257,7 +261,7 @@ $list_accordion = get_field('list_accordion', $post->ID);
                                         $dot_title_position = $item['dot_title_position'];
                                         ?>
 
-                                        <li class="dot-content dot-content-<?php echo $key ?> dot-content-<?php echo $dot_title_position ?>" style="bottom: <?php echo $dot_position_y ?>%; left: <?php echo $dot_position_x ?>%; ">
+                                        <li data-current="<?php echo $key ?>" class="dot-content dot-content-<?php echo $key ?> dot-content-<?php echo $dot_title_position ?>" style="bottom: <?php echo $dot_position_y ?>%; left: <?php echo $dot_position_x ?>%; ">
                                             <div class="dot-content__icon">
                                                 <div class="dot-content__icon-center">
                                                     <svg width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -276,6 +280,25 @@ $list_accordion = get_field('list_accordion', $post->ID);
                                 <?php endif ?>
 
                             </div>
+
+                            <?php if (!empty($dots)) : ?>
+
+                                <ul class="section-interactive__dots-list dots-list-mobile">
+
+                                    <?php foreach ($dots as $key=>$item) :
+                                        $title = $item['dot_title'];
+                                        ?>
+
+                                        <li data-current="<?php echo $key ?>" class="dot-content dot-content-<?php echo $key ?>">
+                                            <div class="dot-content__text"><?php echo $title ?></div>
+                                        </li>
+
+                                    <?php endforeach ?>
+
+                                </ul>
+
+                            <?php endif ?>
+
                         </div>
                     </div>
                 </li>
@@ -472,22 +495,26 @@ $list_accordion = get_field('list_accordion', $post->ID);
                 </div>
 
                 <?php if ( !empty($list_accordion)) : ?>
+
                 <ul class="section-accordion__list">
+
                     <?php foreach ($list_accordion as $key=>$item) :
                         $title = $item['title_item_accordion'];
                         $description = $item['description_item_accordion'];
                         ?>
 
                         <li class="section-accordion__item">
-                            <div class="accordion-item__title">
-                                <h3><?php echo $title; ?></h3>
+                            <div class="accordion-item__headline">
+                                <h3 class="accordion-item__title"><?php echo $title; ?></h3>
                                 <svg class="accordion-item__icon" width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.50002 0.424805L10 6.92481L16.5 0.424805L19.1 1.7248L10 10.8248L0.900024 1.7248L3.50002 0.424805Z" fill="#455475"/>
                                 </svg>
                             </div>
                             <div class="accordion-item__description">
                                 <div class="accordion-item__description-inner">
+
                                     <?php echo $description; ?>
+
                                 </div>
                             </div>
 
@@ -500,9 +527,38 @@ $list_accordion = get_field('list_accordion', $post->ID);
             </div>
         </div>
     </section>
+    <section class="section-simple">
+        <div class="main-size-large">
+            <div class="section-simple__inner">
 
-    <section  style="background-color: #0a4b78; height: 200vh"></section>
+                <?php if ( !empty($title_simple)) : ?>
 
+                    <h2 class="main-title-small"><?php echo $title_simple; ?></h2>
+
+                <?php endif ?>
+
+                <div class="button-group">
+
+                    <?php insertButton($link_simple, 'main-button main-button-white'); ?>
+
+                </div>
+            </div>
+            <div class="section-simple__decor">
+                <div class="section-simple__decor-grid-left">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/grid-img-0.png">
+                </div>
+                <div class="section-simple__decor-grid-right">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/grid-img-1.png">
+                </div>
+                <div class="section-simple__decor-left">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/decor-image-0.png">
+                </div>
+                <div class="section-simple__decor-right">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/decor-image-1.png">
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 

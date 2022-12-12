@@ -36,13 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
         let heightItemInteractive = arrInteractive[0].clientHeight
         let realHeightItemInteractive = document.querySelector('.section-interactive__item-inner').clientHeight + 50
 
-        if(!mediaLaptop || !heightLarge || !heightExtraLarge) {
-            if(!mediaTablet) {
-                timelineSectionInteractive
-                    .fromTo([`header`], {}, {clipPath: 'inset(0 0 100% 0)', duration: 0.1, ease: Linear.easeNone})
-            }
-        }
-
         if(heightLarge) {
             timelineSectionInteractive
                 .fromTo([`.section-interactive`], {}, {marginTop: '-30vh', duration: 0.5, ease: Linear.easeNone})
@@ -63,13 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 .fromTo([`.trigger-margin`], {}, {marginTop: '-30vh', duration: 0.5, ease: Linear.easeNone}, '<')
         }
 
-        if (!mediaLaptop || !heightLarge || !heightExtraLarge) {
-            timelineSectionInteractive
-                .fromTo([`header`], {}, {clipPath: 'inset(0 0 0% 0)', duration: 0.1, ease: Linear.easeNone})
-
-        }
-
-        let  ScrollMagicInteractive = new ScrollMagic.Scene({triggerElement: ".section-interactive", duration: heightItemInteractive * arrInteractive.length, triggerHook: mediaTabletLandscape ? 'onLeave' : heightLarge ? '0.23' : heightExtraLarge ? '0.3' : 'onLeave'})
+        let  ScrollMagicInteractive = new ScrollMagic.Scene({triggerElement: ".section-interactive", duration: heightItemInteractive * arrInteractive.length, triggerHook: mediaTabletLandscape ? 'onLeave' : heightLarge ? '0.3' : heightExtraLarge ? '0.3' : 'onLeave'})
             .setPin('.section-interactive')
             .setTween(timelineSectionInteractive)
             // .addIndicators({name: "section-interactive"})
@@ -93,38 +80,91 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if(arrDotsLists) {
         arrDotsLists.forEach((list) => {
-            let arrIcon = list.querySelectorAll('.dot-content__icon')
+            let arrIcon = list.querySelectorAll('.dots-list-desktop .dot-content__icon')
 
             //show first dot
-            arrIcon[0].classList.add('active');
+            if(arrIcon[0]) {
+                arrIcon[0].classList.add('active');
+            }
 
-            arrIcon.forEach((icon) => {
+            if(!mediaMobile) {
+                arrIcon.forEach((icon) => {
 
-                icon.addEventListener('click', function() {
-                    let parentMain = this.closest('.section-interactive__item-image')
-                    let thisImageChange = parentMain.querySelector('.image-interactive-change')
+                    icon.addEventListener('click', function() {
+                        let parentMain = this.closest('.section-interactive__item-image')
+                        let thisImageChange = parentMain.querySelector('.image-interactive-change')
 
-                    if (thisImageChange) {
-                        thisImageChange.classList.add('active')
-                    }
+                        if (thisImageChange) {
+                            thisImageChange.classList.add('active')
+                        }
 
-                    this.parentNode.classList.toggle('active');
+                        this.parentNode.classList.toggle('active');
 
-                    //open next dot
-                    let nextDot = this.parentNode.nextElementSibling
-                    if(nextDot) {
-                        nextDot.querySelector('.dot-content__icon').classList.toggle('active');
-                    }
+                        //open next dot
+                        let nextDot = this.parentNode.nextElementSibling
+                        if(nextDot) {
+                            nextDot.querySelector('.dot-content__icon').classList.toggle('active');
+                        }
 
-                    //close prev dot
-                    let prevDot = this.parentNode.previousElementSibling
-                    if(prevDot) {
-                        prevDot.querySelector('.dot-content__icon').classList.remove('active');
-                        prevDot.classList.remove('active');
-                    }
+                        //close prev dot
+                        let prevDot = this.parentNode.previousElementSibling
+                        if(prevDot) {
+                            prevDot.querySelector('.dot-content__icon').classList.remove('active');
+                            prevDot.classList.remove('active');
+                        }
+                    })
+
                 })
-            })
+            }
+
+            if(mediaMobile) {
+                // let arrIcon = list.querySelectorAll('.dots-list-desktop .dot-content__icon')
+                // console.log(arrIcon[0])
+                // //show first dot
+                // arrIcon[0].classList.add('active');
+
+                arrIcon.forEach((icon) => {
+
+                    icon.addEventListener('click', function() {
+                        let parentMain = this.closest('.section-interactive__item-image')
+                        let thisImageChange = parentMain.querySelector('.image-interactive-change')
+
+                        if (thisImageChange) {
+                            thisImageChange.classList.add('active')
+                        }
+
+                        this.parentNode.classList.toggle('active');
+
+                        let currentIdx = this.parentNode.getAttribute('data-current') * 1
+                        let currentItemMobile =  this.closest('.section-interactive__item-inner').querySelector('.dots-list-mobile').querySelector(`[data-current="${currentIdx}"]`)
+
+                        //open next dot
+                        let nextDot = this.parentNode.nextElementSibling
+
+                        if(currentItemMobile) {
+                            currentItemMobile.classList.toggle('active') //open mobile description
+
+                            if(currentItemMobile.previousElementSibling) {
+
+                                currentItemMobile.previousElementSibling.classList.remove('active');
+                            }
+                            if(nextDot) {
+                                nextDot.querySelector('.dot-content__icon').classList.toggle('active');
+                            }
+                        }
+
+                        //close prev dot
+                        let prevDot = this.parentNode.previousElementSibling
+                        if(prevDot) {
+                            prevDot.querySelector('.dot-content__icon').classList.remove('active');
+                            currentItemMobile.previousElementSibling.classList.remove('active');
+                        }
+                    })
+
+                })
+            }
         })
+
     }
 
     if(sliderRatings) {
@@ -176,9 +216,6 @@ document.addEventListener("DOMContentLoaded", function() {
         function toggleAccordion() {
             let thisItem = this.closest('.section-accordion__item');
 
-            console.log(12)
-
-
             accordion.forEach(item => {
                 if (thisItem === item) {
                     thisItem.classList.toggle('active');
@@ -192,5 +229,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
         accordion.forEach(question => question.addEventListener('click', toggleAccordion))
     }
-
 })

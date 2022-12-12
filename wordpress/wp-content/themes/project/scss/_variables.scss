@@ -1,5 +1,6 @@
 $paddingMainSize: 20px;
 $mainSize: 1200px + $paddingMainSize * 2;
+$mainSizeLarge: 1440px + $paddingMainSize * 2;
 
 //colors
 $colorMain: #030D25;
@@ -13,6 +14,7 @@ $colorButton: #455475;
 $colorGrey: #A3ABBB;
 $colorGreyLight: #F3F4F9;
 $colorVioletLight: #C3C9E2;
+$colorFooter: #6E8190;
 
 //borders
 $borderButton: 2px solid $colorBorder;
@@ -27,6 +29,12 @@ $mediaWidthTablet: 991px;
 $mediaWidthLaptop: 1024px;
 
 //media
+@mixin media-desktop-small {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
 @mixin media-large-laptop {
   @media (max-width: 1200px) {
     @content;

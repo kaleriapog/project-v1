@@ -64,7 +64,7 @@ $button_color = get_field('color_button', 'options');
 
                         <?php if(empty($button_color) && !empty($button_header)) : ?>
 
-                            <div class="monitor-section__image">
+                            <div>
 
                                 <?php insertButton($button_header, 'header__button main-button'); ?>
 
