@@ -8,8 +8,8 @@
 
 a {
   @include media-mobile {
-    margin: 15px;
-    min-height: 50px;
+    margin: 100px;
+    min-height: 100px;
     display: block;
   }
 }
