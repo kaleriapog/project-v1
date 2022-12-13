@@ -6,3 +6,9 @@
 @import "header";
 @import "home";
 
+a {
+  @include media-mobile {
+    margin-bottom: 15px;
+    display: block;
+  }
+}
