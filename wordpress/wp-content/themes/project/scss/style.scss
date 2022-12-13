@@ -9,6 +9,7 @@
 a {
   @include media-mobile {
     margin-bottom: 15px;
+    min-height: 50px;
     display: block;
   }
 }
