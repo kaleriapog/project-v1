@@ -5,11 +5,3 @@
 @import "main";
 @import "header";
 @import "home";
-
-a {
-  @include media-mobile {
-    margin: 100px;
-    min-height: 100px;
-    display: block;
-  }
-}
