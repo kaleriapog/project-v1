@@ -18,6 +18,14 @@
     font-size: 14px;
     line-height: 1.42;
     padding: 14px 24px;
+
+    @include media-laptop {
+      font-size: 22px;
+    }
+
+    @include media-mobile{
+      font-size: 14px;
+    }
   }
 
   .header__menu {
