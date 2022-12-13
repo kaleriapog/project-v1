@@ -24,6 +24,10 @@
   .widget_nav_menu {
     max-width: 295px;
 
+    @include media-mobile {
+      max-width: 100%;
+    }
+
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -32,10 +36,16 @@
       font-weight: 600;
       line-height: 1.42;
       color: $colorFooter;
-      gap: 24px 55px;
+      gap: 0 55px;
+      margin-bottom: -24px;
+
+      @include media-mobile {
+        font-size: 16px;
+      }
 
       li {
         width: calc((100% - 55px) / 2);
+        padding-bottom: 24px;
 
         &:nth-child(2n) {
           order: 1;
