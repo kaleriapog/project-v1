@@ -309,6 +309,7 @@
         height: 34px;
         position: relative;
         opacity: 0;
+        cursor: pointer;
 
         &.active {
           opacity: 1;

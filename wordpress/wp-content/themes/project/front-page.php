@@ -545,16 +545,16 @@ $link_simple = get_field('link_simple', $post->ID);
             </div>
             <div class="section-simple__decor">
                 <div class="section-simple__decor-grid-left">
-                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/grid-img-0.png">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/grid-img-0.webp">
                 </div>
                 <div class="section-simple__decor-grid-right">
-                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/grid-img-1.png">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/grid-img-1.webp">
                 </div>
                 <div class="section-simple__decor-left">
-                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/decor-image-0.png">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/decor-image-0.webp">
                 </div>
                 <div class="section-simple__decor-right">
-                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/decor-image-1.png">
+                    <img alt="decor" src="<?php echo get_template_directory_uri() ?>/images/decor-image-1.webp">
                 </div>
             </div>
         </div>

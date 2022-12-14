@@ -149,7 +149,7 @@ function project_scripts() {
     wp_enqueue_script('debugAddIndicators', get_template_directory_uri() . '/js/libraries/debug.addIndicators.min.js',array('jquery'),null,false);
     wp_enqueue_script('animationGsap', get_template_directory_uri() . '/js/libraries/animation.gsap.js',array('jquery'),null,false);
 
-	wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'project-scripts', get_template_directory_uri() . '/js/scripts.min.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
