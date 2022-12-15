@@ -234,12 +234,19 @@ document.addEventListener("DOMContentLoaded", function() {
     if(generateLinkButton) {
         let generateLinkInput = document.querySelector('.hero__generate-link-meeting-input')
 
-        generateLinkButton.addEventListener('click', () => {
+        function openNewLink() {
             let codeMeet = generateLinkInput.value.trim()
             let linkMeet = generateLinkInput.getAttribute('data-link')
             let generateLinkMeet = linkMeet + codeMeet
 
             window.open(generateLinkMeet, '_blank');
+        }
+
+        generateLinkButton.addEventListener('click', openNewLink)
+        generateLinkInput.addEventListener("keyup", function(e) {
+            if (e.keyCode === 13) {
+                openNewLink()
+            }
         })
     }
 })
