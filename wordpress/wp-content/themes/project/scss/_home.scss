@@ -33,6 +33,44 @@
     }
   }
 
+  &__generate-link-meeting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0;
+  }
+
+  &__generate-link-meeting-button {
+    cursor: pointer;
+    padding-right: 20px;
+    transition: $transitionMain;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  &__generate-link-meeting-input {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.37;
+    color: $colorButton;
+
+    &::placeholder {
+      color: $colorButton;
+      transition: $transitionMain;
+    }
+
+    &:focus::placeholder {
+      opacity: 0.7;
+    }
+  }
+
   &__image {
     max-width: 1322px;
     width: 100%;

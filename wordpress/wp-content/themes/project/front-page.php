@@ -7,6 +7,10 @@ $subtitle_above_title_hero = get_field('subtitle_above_title_hero', $post->ID);
 $title_hero = get_field('title_hero', $post->ID);
 $subtitle_hero = get_field('subtitle_hero', $post->ID);
 $buttons_hero = get_field('buttons_hero', $post->ID);
+$button = $buttons_hero['button'];
+$button_arrow = $buttons_hero['button_arrow_hero'];
+$button_color = $buttons_hero['button_color_hero'];
+$link_before_meeting_code = $buttons_hero['link_before_meeting_code'];
 $image_hero = get_field('image_hero', $post->ID);
 $title_logos = get_field('title_logos', $post->ID);
 $logos = get_field('logos', $post->ID);
@@ -72,36 +76,33 @@ $link_simple = get_field('link_simple', $post->ID);
                 <?php if ( !empty($buttons_hero)) : ?>
 
                 <ul class="buttons_group">
+                    <li>
 
-                <?php
-                    foreach ($buttons_hero as $item) :
-                        $button = $item['button'];
-                        $button_arrow = $item['button_arrow_hero'];
-                        $button_color = $item['button_color_hero'];
-                ?>
+                        <?php if(!empty($button_color) && !empty($button) && empty($button_arrow)) : ?>
 
-                <li>
+                                <?php insertButton($button, 'main-button main-button-color'); ?>
 
-                    <?php if(!empty($button_color) && !empty($button) && empty($button_arrow)) : ?>
+                        <?php endif ?>
+                        <?php if(empty($button_color) && !empty($button) && !empty($button_arrow)) : ?>
 
-                            <?php insertButton($button, 'main-button main-button-color'); ?>
+                                <?php insertButton($button, 'main-button main-button-arrow'); ?>
 
-                    <?php endif ?>
-                    <?php if(empty($button_color) && !empty($button) && !empty($button_arrow)) : ?>
+                        <?php endif ?>
+                        <?php if(!empty($button_color) && !empty($button) && !empty($button_arrow)) : ?>
 
-                            <?php insertButton($button, 'main-button main-button-arrow'); ?>
+                                <?php insertButton($button, 'main-button main-button-color main-button-arrow'); ?>
 
-                    <?php endif ?>
-                    <?php if(!empty($button_color) && !empty($button) && !empty($button_arrow)) : ?>
+                        <?php endif ?>
 
-                            <?php insertButton($button, 'main-button main-button-color main-button-arrow'); ?>
-
-                    <?php endif ?>
-
-                </li>
-
-                <?php endforeach; ?>
-
+                    </li>
+                    <li>
+                        <div class="hero__generate-link-meeting main-button">
+                            <input class="hero__generate-link-meeting-input" data-link="<?php echo $link_before_meeting_code ?>" placeholder="Enter meeting code" type="text">
+                            <button class="hero__generate-link-meeting-button" href="#">
+                                <img class="image" src="<?php echo get_template_directory_uri() ?>/images/arrow.svg">
+                            </button>
+                        </div>
+                    </li>
                 </ul>
 
                 <?php endif ?>

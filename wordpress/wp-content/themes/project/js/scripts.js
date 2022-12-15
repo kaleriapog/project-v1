@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let sliderRatings = document.querySelector('.slider-ratings')
     let ratings = document.querySelectorAll('.section-ratings__card-rating')
     let accordion = document.querySelectorAll('.section-accordion__item')
+    let generateLinkButton = document.querySelector('.hero__generate-link-meeting-button')
 
     let orientationLandscape = window.innerHeight < window.innerWidth
     let heightLarge = window.innerHeight > 1025
@@ -228,5 +229,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         accordion.forEach(question => question.addEventListener('click', toggleAccordion))
+    }
+
+    if(generateLinkButton) {
+        let generateLinkInput = document.querySelector('.hero__generate-link-meeting-input')
+
+        generateLinkButton.addEventListener('click', () => {
+            let codeMeet = generateLinkInput.value.trim()
+            let linkMeet = generateLinkInput.getAttribute('data-link')
+            let generateLinkMeet = linkMeet + codeMeet
+
+            window.open(generateLinkMeet, '_blank');
+        })
     }
 })
