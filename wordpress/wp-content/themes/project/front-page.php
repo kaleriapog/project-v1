@@ -265,7 +265,7 @@ $link_simple = get_field('link_simple', $post->ID);
                                         <li data-current="<?php echo $key ?>" class="dot-content dot-content-<?php echo $key ?> dot-content-<?php echo $dot_title_position ?>" style="bottom: <?php echo $dot_position_y ?>%; left: <?php echo $dot_position_x ?>%; ">
                                             <div class="dot-content__icon">
                                                 <div class="dot-content__icon-center">
-                                                    <svg width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg width="20" height="20" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <circle cx="6.49976" cy="6.5" r="1.79348" fill="#2E85FE" stroke="#2E85FE" stroke-width="0.413043"/>
                                                         <circle cx="6.5" cy="6.5" r="5" stroke="#2E85FE" stroke-width="2"/>
                                                     </svg>
