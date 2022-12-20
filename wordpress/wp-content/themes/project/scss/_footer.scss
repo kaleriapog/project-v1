@@ -26,6 +26,7 @@
 
     @include media-mobile {
       max-width: 100%;
+      width: 100%;
     }
 
     ul {
@@ -88,4 +89,9 @@
     }
   }
 
+  &__left {
+    @include media-mobile {
+      width: 100%;
+    }
+  }
 }

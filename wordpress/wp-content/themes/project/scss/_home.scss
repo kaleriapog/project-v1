@@ -16,10 +16,11 @@
 
     @include media-tablet {
       font-size: 60px;
+      line-height: 1.1;
     }
 
     @include media-mobile {
-      font-size: 38px;
+      font-size: 34px;
     }
   }
 
@@ -86,6 +87,13 @@
     }
   }
 
+
+  &__logos-items {
+    @include media-mobile {
+      overflow: scroll;
+    }
+  }
+
   &__logos-title {
     font-size: 16px;
     font-weight: 600;
@@ -105,6 +113,13 @@
     @include media-laptop {
       gap: 20px;
     }
+
+    @include media-mobile {
+      flex-wrap: nowrap;
+      line-height: 0;
+      justify-content: start;
+      gap: 0;
+    }
   }
 
   &__logos-item-image, &__logos-item, &__logos-item img {
@@ -114,6 +129,12 @@
 
     @include media-tablet {
       max-width: 130px;
+    }
+
+    @include media-mobile {
+      max-height: 42px;
+      max-width: 160px;
+      width: auto!important;
     }
   }
 }
@@ -175,6 +196,10 @@
       justify-content: center;
       gap: 20px;
     }
+
+    @include media-mobile {
+      flex-wrap: nowrap;
+    }
   }
 
   &__item-image {
@@ -227,7 +252,7 @@
   }
 
   .headline {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     @include media-height-desk-extra-low {
       margin-bottom: 20px;
@@ -242,11 +267,11 @@
     position: relative;
 
     @include media-height-830 {
-      max-width: 950px;
+      max-width: 135vh;
     }
 
     @include media-height-730 {
-      max-width: 110vh;
+      max-width: 125vh;
     }
 
     @include media-laptop {
@@ -516,17 +541,17 @@
     line-height: 1.4;
 
     @include media-mobile {
-      font-size: 14px;
+      font-size: 18px;
+    }
+
+    @include media-mobile-small {
+      font-size: 16px;
     }
   }
 
   .headline {
     margin-bottom: 80px;
     max-width: 590px;
-
-    @include media-mobile {
-      margin-bottom: 40px;
-    }
   }
 
   &__item {
@@ -543,7 +568,7 @@
     @include media-tablet {
       width: calc((100% - 20px) / 2);
       padding: 0 10px;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     @include media-mobile {
@@ -567,6 +592,7 @@
 
     @include media-tablet {
       font-size: 38px;
+      line-height: 1.1;
     }
 
     @include media-height-desk-extra-low {
@@ -574,11 +600,11 @@
     }
 
     @include media-mobile {
-      font-size: 34px;
+      font-size: 28px;
     }
 
     @include media-mobile-small {
-      font-size: 32px;
+      font-size: 26px;
     }
   }
 
@@ -671,6 +697,10 @@
 
   .slider-button-prev, .slider-button-next {
     max-width: 24px;
+
+    @include media-mobile {
+      display: none;
+    }
   }
 
   .slider-button-next {
@@ -713,7 +743,7 @@
       line-height: 1.2;
 
       @include media-mobile {
-        font-size: 20px;
+        font-size: 16px;
       }
     }
 

@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let ratings = document.querySelectorAll('.section-ratings__card-rating')
     let accordion = document.querySelectorAll('.section-accordion__item')
     let generateLinkButton = document.querySelector('.hero__generate-link-meeting-button')
+    let logoList = document.querySelector('.hero__logos-list')
+
 
     let orientationLandscape = window.innerHeight < window.innerWidth
     let heightLarge = window.innerHeight > 1025
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if(heightLarge) {
             timelineSectionInteractive
                 .fromTo([`.section-interactive`], {}, {marginTop: '-30vh', duration: 0.5, ease: Linear.easeNone})
-                .fromTo([`.section-interactive__item`], {}, {paddingTop: '30vh', duration: 0.5, ease: Linear.easeNone}, '<')
+                // .fromTo([`.section-interactive__item`], {}, {paddingTop: '30vh', duration: 0.5, ease: Linear.easeNone}, '<')
 
         }
 
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if(!(arrInteractive.length - 1 === idx)) {
                 timelineSectionInteractive
                     .fromTo([`.interactive-item-${idx}`], {}, {clipPath: 'inset(0 0 100% 0)', ease: Circ.easeNone})
-                    .fromTo([`.interactive-item-${idx} img`], {}, {transform: 'translateY(-20px)', ease: Linear.easeNone}, '<')
+                    // .fromTo([`.interactive-item-${idx} img`], {}, {transform: 'translateY(-20px)', ease: Linear.easeNone}, '<')
             }
         })
 
@@ -119,10 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             if(mediaMobile) {
-                // let arrIcon = list.querySelectorAll('.dots-list-desktop .dot-content__icon')
-                // console.log(arrIcon[0])
-                // //show first dot
-                // arrIcon[0].classList.add('active');
 
                 arrIcon.forEach((icon) => {
 
@@ -248,5 +246,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 openNewLink()
             }
         })
+    }
+
+    if(logoList && mediaMobile) {
+        logoList.classList.add('swiper-wrapper')
+        logoList.parentNode.classList.add('swiper')
+
+        let logoListItem = document.querySelectorAll('.hero__logos-list li')
+
+        logoListItem.forEach((li) => {
+            li.classList.add('swiper-slide')
+        })
+
+        const sliderLogosSwiper = new Swiper('.hero__logos-items', {
+            direction: 'horizontal',
+            spaceBetween: 20,
+            // loop: true,
+            slidesPerView: 'auto',
+            // centeredSlides: true,
+            preventInteractionOnTransition: true,
+            // width: 'auto'
+        });
     }
 })

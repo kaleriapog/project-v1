@@ -128,7 +128,8 @@ $link_simple = get_field('link_simple', $post->ID);
 
              <?php endif ?>
 
-             <ul class="hero__logos-list">
+            <div class="hero__logos-items">
+                <ul class="hero__logos-list">
 
                 <?php
                     foreach ($logos as $item) :
@@ -146,6 +147,7 @@ $link_simple = get_field('link_simple', $post->ID);
                 <?php endforeach ?>
 
              </ul>
+            </div>
         </div>
     </section>
     <section class="section-awards">
