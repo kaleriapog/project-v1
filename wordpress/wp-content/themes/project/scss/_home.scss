@@ -90,7 +90,7 @@
 
   &__logos-items {
     @include media-mobile {
-      overflow: scroll;
+      padding-bottom: 50px!important;
     }
   }
 
@@ -494,9 +494,8 @@
     }
 
     .dot-content {
-      position: absolute;
+      position: static;
       z-index: 2;
-      padding: 16px 14px;
       max-width: 240px;
       min-width: 240px;
       font-size: 14px;
@@ -506,14 +505,24 @@
       width: 100%;
       border-radius: 8px;
       background-color: $colorBlue;
-      clip-path: inset(0 0 100% 0);
-      transition: $transitionMain;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
+      //clip-path: inset(0 0 100% 0);
+      //transition: $transitionMain;
+      //top: -20px;
+      //left: 50%;
+      //transform: translateX(-50%);
+      margin: auto;
+      max-height: 0;
+      transition: max-height .5s ease-out;
+      overflow: hidden;
+
+      &__text {
+        padding: 16px 14px;
+      }
 
       &.active {
-        clip-path: inset(-10px -10px -10px -10px);
+        //clip-path: inset(-10px -10px -10px -10px);
+        max-height: 500px;
+        transition: max-height .5s ease-in;
       }
     }
   }
@@ -630,6 +639,7 @@
 
     @include media-mobile {
       gap: 60px;
+      max-width: 100%;
     }
 
     @include media-mobile-landscape {
@@ -680,19 +690,6 @@
 
   .swiper-wrapper {
     overflow: visible;
-  }
-
-  .swiper-pagination-bullet {
-    background-color: transparent;
-    border-radius: 50%;
-    border: 2px $colorVioletLight solid;
-    width: 10px;
-    height: 10px;
-    margin: 0 6px!important;
-
-    &.swiper-pagination-bullet-active {
-      background-color: $colorVioletLight;
-    }
   }
 
   .slider-button-prev, .slider-button-next {

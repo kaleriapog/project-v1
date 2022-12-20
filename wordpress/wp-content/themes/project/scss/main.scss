@@ -256,3 +256,16 @@ section {
     margin: auto;
   }
 }
+
+section .swiper-pagination-bullet {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px $colorVioletLight solid;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px!important;
+
+  &.swiper-pagination-bullet-active {
+    background-color: $colorVioletLight;
+  }
+}

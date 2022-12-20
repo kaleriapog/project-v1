@@ -252,6 +252,9 @@ document.addEventListener("DOMContentLoaded", function() {
         logoList.classList.add('swiper-wrapper')
         logoList.parentNode.classList.add('swiper')
 
+        logoList.parentNode.append(document.createElement('div'))
+        logoList.nextElementSibling.classList.add('swiper-pagination')
+
         let logoListItem = document.querySelectorAll('.hero__logos-list li')
 
         logoListItem.forEach((li) => {
@@ -266,6 +269,10 @@ document.addEventListener("DOMContentLoaded", function() {
             // centeredSlides: true,
             preventInteractionOnTransition: true,
             // width: 'auto'
+            pagination: {
+                el: ".hero__logos-items .swiper-pagination",
+                clickable: true,
+            },
         });
     }
 })
