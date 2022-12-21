@@ -68,6 +68,10 @@
     color: $colorButton;
     margin-bottom: -4px;
 
+    @include media-mobile {
+      margin-bottom: 0;
+    }
+
     &::placeholder {
       color: $colorButton;
       transition: $transitionMain;
