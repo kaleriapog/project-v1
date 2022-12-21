@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
         arrInteractive.forEach((el,idx) => {
 
             new ScrollMagic.Scene({triggerElement: `.interactive-item-${idx}`, duration: '100%', triggerHook: 0.9})
-                .setTween(`.interactive-item-${idx} .section-interactive__item-image`, {transform: 'translateY(-30px)'})
+                .setTween(`.interactive-item-${idx} .section-interactive__item-image`, {transform: 'translateY(-20px)'})
                 // .addIndicators({name: "section-interactive"})
                 .addTo(controller)
                 .reverse(true);
@@ -252,9 +252,6 @@ document.addEventListener("DOMContentLoaded", function() {
         logoList.classList.add('swiper-wrapper')
         logoList.parentNode.classList.add('swiper')
 
-        logoList.parentNode.append(document.createElement('div'))
-        logoList.nextElementSibling.classList.add('swiper-pagination')
-
         let logoListItem = document.querySelectorAll('.hero__logos-list li')
 
         logoListItem.forEach((li) => {
@@ -264,15 +261,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const sliderLogosSwiper = new Swiper('.hero__logos-items', {
             direction: 'horizontal',
             spaceBetween: 20,
-            // loop: true,
+            loop: true,
+            loopedSlides: 10,
+            loopAdditionalSlides: 10,
             slidesPerView: 'auto',
             // centeredSlides: true,
-            preventInteractionOnTransition: true,
-            // width: 'auto'
-            pagination: {
-                el: ".hero__logos-items .swiper-pagination",
-                clickable: true,
+            speed: 5000,
+            // preventInteractionOnTransition: true,
+            autoplay: {
+                delay: 1,
+                // disableOnInteraction: false
             },
+            // centeredSlides: true,
         });
     }
 })

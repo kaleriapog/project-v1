@@ -122,6 +122,12 @@
     }
   }
 
+  .swiper .swiper-wrapper {
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    transition-timing-function: linear;
+  }
+
   &__logos-item-image, &__logos-item, &__logos-item img {
     max-width: 180px;
     max-height: 42px;
@@ -529,6 +535,11 @@
 }
 
 .section-items {
+  &__item-text {
+    font-weight: 400;
+    color: $colorButton;
+  }
+
   &__items-list {
     display: flex;
     flex-wrap: wrap;
