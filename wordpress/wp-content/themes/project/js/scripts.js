@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
         arrInteractive.forEach((el,idx) => {
 
             new ScrollMagic.Scene({triggerElement: `.interactive-item-${idx}`, duration: '100%', triggerHook: 0.9})
-                .setTween(`.interactive-item-${idx} .section-interactive__item-image`, {transform: 'translateY(-20px)'})
+                .setTween(`.interactive-item-${idx} .section-interactive__item-image`, {transform: 'translateY(-10px)'})
                 // .addIndicators({name: "section-interactive"})
                 .addTo(controller)
                 .reverse(true);
